@@ -9,10 +9,13 @@ Filter tasks by completion status
 Sort tasks by creation date
 Manage task priorities (low, medium, high)
 Retrieve tasks by priority level
-Modular project structure using Routes, Controllers, Middleware, and Data layers
+
+
 Tech Stack
 Node.js
 Express.js
+
+
 Project Structure
 .
 ├── app.js
@@ -24,12 +27,14 @@ Installation
 Clone the repository
 git clone <repository-url>
 cd <repository-name>
+
 Install dependencies
 npm install
+
 Start the server
 node app.js
-Server runs on:
 
+Server runs on:
 http://localhost:3000
 Task Schema
 {
@@ -40,13 +45,15 @@ Task Schema
   "priority": "high",
   "createdAt": "2026-06-12T10:00:00.000Z"
 }
+
 API Endpoints
+
 Get All Tasks
 Retrieve all tasks.
 
 Request
-
 GET /tasks
+
 Response
 
 [
@@ -59,6 +66,8 @@ Response
     "createdAt": "2026-06-12T10:00:00.000Z"
   }
 ]
+
+
 Get Task By ID
 Retrieve a specific task by its ID.
 
@@ -82,6 +91,7 @@ Body
   "completed": false,
   "priority": "high"
 }
+
 Response
 
 {
@@ -101,6 +111,7 @@ PUT /tasks/:id
 Example
 
 PUT /tasks/1
+
 Body
 
 {
@@ -123,50 +134,68 @@ Response
 {
   "message": "Task deleted successfully"
 }
+
 Filtering
+
 Retrieve tasks based on completion status.
 
 Completed Tasks
+
 GET /tasks?completed=true
 Pending Tasks
+
 GET /tasks?completed=false
 Sorting
+
 Sort tasks by creation date.
 
 Oldest First
+
 GET /tasks?sort=asc
+
 Newest First
+
 GET /tasks?sort=desc
+
 Filtering and Sorting Together
 GET /tasks?completed=true&sort=desc
+
 Get Tasks By Priority
 Retrieve tasks by priority level.
 
 High Priority
 GET /tasks/priority/high
+
 Medium Priority
 GET /tasks/priority/medium
+
 Low Priority
 GET /tasks/priority/low
+
 Validation Rules
+
 Title
 Required
 Must be a non-empty string
+
 Description
 Required
 Must be a non-empty string
+
 Completed
 Required
 Must be a boolean value
+
 Priority
 Required
 
 Allowed values:
-
 low
 medium
 high
+
 Error Responses
+
 Invalid Input
 Status: 400 Bad Request
 
@@ -194,7 +223,3 @@ Status: 404 Not Found
 {
   "message": "Route not found"
 }
-Notes
-Data is stored in memory and will be reset whenever the server restarts.
-No database is used in this project.
-The API is designed to demonstrate Express.js routing, validation, filtering, sorting, and controller-based architecture.
